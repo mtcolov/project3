@@ -42,13 +42,6 @@ $(document).ready(function(){
 	}
 	
 	
-	//Refresh element
-	// function refreshEl(el){
-		// var cached = $(this).val();
-		// $(el).html(cached);
-	// }
-	
-	
 	//Define char position
 	function getCharPosition(c) {
 		var index = keyPhrase.indexOf(c);
@@ -108,7 +101,7 @@ $(document).ready(function(){
 		for (var i = 0; i < digraph.length; i++) {
 			cipher.push(encipherPair(digraph[i]));
 		}
-
+		
 		return cipher;
 	}
 	
@@ -125,7 +118,6 @@ $(document).ready(function(){
 			else if (strArr[i] == strArr[i + 1]) digraph.push(strArr[i] + specChar);
 			else digraph.push(strArr[i] + strArr[++i]);
 		}
-		
 		return digraph;
 	}
 	
@@ -180,33 +172,9 @@ $(document).ready(function(){
 	// Text to encrypt function
 	function TextToEncrypt(text) {
 		var i = 0;
+		text = text.toLowerCase().replace(/[^a-z0-9]/g, "").replace("j", "i");
 		text = numToText(text);
 		text = text.split("");
-		for (i = 0; i < text.length; i++) {
-			if (text[i] === text[i + 1]) {
-				text[i] += specChar;
-			}
-		}
-		text = text.join("");
-		
-		text = text.toLowerCase().replace(/[^a-z0-9]/g, "").replace("j", "i");
-		
-		text = text.split("");
-		
-		if (text.length % 2) {
-			text.push(specChar);
-		}
-		
-		for (i = 0; i < text.length; i += 2) {
-			if (text[i] === text[i + 1]) {
-				text[i] += specChar;
-			}
-		}
-		
-		if (text.length % 2) {
-			text.push(specChar);
-		}
-		
 		return text.join("");
 		
 	}
@@ -222,23 +190,23 @@ $(document).ready(function(){
 			} else {
 			$("#passphrase").next().removeClass('bg-danger text-red').css("display", "none");
 			printKey();
-			}
+		}
 		
 		
 	});
 	
 	// Encrypt button event
 	$("#encrypt").click(function (e) {
-	e.preventDefault();
+		e.preventDefault();
 		var str = TextToEncrypt($("#plaintext").val());
 		
 		if (!str) {
-		$("#plaintext").next().addClass('bg-danger text-red').css("display", "block");
-		} else {
-		$("#plaintext").next().removeClass('bg-danger text-red').css("display", "none");
-		var digraph = makeDigraph(str);
-		var cipher = encipher(digraph);
-		$("#ciphertext").val(cipher.join(""));
+			$("#plaintext").next().addClass('bg-danger text-red').css("display", "block");
+			} else {
+			$("#plaintext").next().removeClass('bg-danger text-red').css("display", "none");
+			var digraph = makeDigraph(str);
+			var cipher = encipher(digraph);
+			$("#ciphertext").val(cipher.join(""));
 		}
 		
 	});
