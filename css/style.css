@@ -1,31 +1,27 @@
-body{
-    background: #a3c2c2;
+html, body, div, h1, h2, h3, form, button, p, span, a {
+	padding: 0;
+	margin: 0;
+	/* box-sizing: border-box; */
 }
 
-
-form {
-	width: 60%;
-  float: left; }
-  
-  /* .panel, .panel-heading */ .toWell, .well  {
-	  width: 30%;
-	  float: right;
-	  }
+body{
+    background: #a3c2c2;
+	font-family: "Courier", monospace;
+}
   
   #keyTable {
-  width: 30%;
-  height: 30%;
+  
   padding: 10px;
-  /* border: 1px solid #000; */
-  font: 41px "Courier", monospace;
-  /* float: right; */} 
+  border: 2px solid #000;
+  font-size: 2.5rem;
+  } 
   
   .msg {
 		display: none;
 			margin: 0 5px;
 			padding: 0 5px;
-			border-bottom-left-radius: 3px;
-			border-bottom-right-radius: 3px;
 		}
-		.text-white { color: #fff; } /* to be tevised */
-		.glyphicon {font-size: 18px; vertical-align: top;} /* to be tevised */
+		.text-red { color: #ff0000;
+			font-weight: bold;
+			}
+		.glyphicon {font-size: 2rem; vertical-align: top;} /* to be tevised */
