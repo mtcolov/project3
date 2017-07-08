@@ -1,36 +1,49 @@
-<!Doctype html>
+<!doctype html>
 <html>
 	<head>
-		<title>Project Fairplay</title>
+		<title>Project Playfair</title>
 		<meta charset="UTF-8">
 		<!-- <script src="assets/jquery-3.2.1.js"></script> -->
 		<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
-	
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script src="scripts/script.js"></script>
 	</head>
 	<body>
 	<div class="container">
-	<h3 class="text-primary text-center">Форма за шифроване</h3>
+	<h3 class="text-primary text-center">Playfair Encryption Form</h3>
 		<form action="" method="post" id="form">
 		<div class="form-group">
-			<label for="passphrase">Дума - ключ:</label>
+			<label for="passphrase">Key string:</label>
 			<input type="text" name="passphrase" id="passphrase" class="form-control" />
+			<div class="msg">There is no key string!</div>
 		</div>
+		<button type="button" value="Confirm" id="confirm" class="btn btn-default">Confirm key
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				</button>
 		<div class="form-group">
-			<label for="plaintext">Открит текст:</label>
+			<label for="plaintext">Text to be encrypted:</label>
 			<textarea name="plaintext" id="plaintext" class="form-control"></textarea>
+			<div class="msg">Enter your text here!</div>
 		</div>
 			<div class="form-group">
-			<label for="ciphertext">Шифрован текст:</label>
+			<label for="ciphertext">Encrypted text:</label>
 			<textarea name="ciphertext" id="ciphertext" class="form-control"></textarea>
 			</div>
 			<button type="button" value="Encrypt" id="encrypt" class="btn btn-primary">Encrypt
 				<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 				</button>
 			</form>
+			
+			<label for="keyTable" class="toWell">Key table:</label>
+			<div id="keyTable" name="keyTable" class="well"></div>
+			
+	
+			
+			
 		</div>
-	<script src="scripts/script.js"></script>
+	
 	</body>
 </html>
