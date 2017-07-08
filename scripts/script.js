@@ -43,10 +43,10 @@ $(document).ready(function(){
 	
 	
 	//Refresh element
-	function refreshEl(el){
-		var cached = $(this).val();
-		$(el).html(cached);
-	}
+	// function refreshEl(el){
+		// var cached = $(this).val();
+		// $(el).html(cached);
+	// }
 	
 	
 	//Define char position
@@ -96,7 +96,7 @@ $(document).ready(function(){
 			pos2.col = col1;
 			char1 = getCharFromPosition(pos1) + getCharFromPosition(pos2);
 		}
-		console.log(char1);
+		
 		return char1;
 	}
 	
@@ -108,7 +108,7 @@ $(document).ready(function(){
 		for (var i = 0; i < digraph.length; i++) {
 			cipher.push(encipherPair(digraph[i]));
 		}
-		console.log(cipher);
+
 		return cipher;
 	}
 	
@@ -125,7 +125,7 @@ $(document).ready(function(){
 			else if (strArr[i] == strArr[i + 1]) digraph.push(strArr[i] + specChar);
 			else digraph.push(strArr[i] + strArr[++i]);
 		}
-		console.log(digraph);
+		
 		return digraph;
 	}
 	
@@ -133,7 +133,7 @@ $(document).ready(function(){
 	// Print 5x5 alphabet table, starting with passphrase chars
 	
 	function printKey() {
-		var tableHtml = "<table class='table table-condensed table-borderless'>";
+		var tableHtml = "<table class='table table-condensed'>";
 		for (var i = 0; i < 25; i = i + 5) {
 			tableHtml += "<tr>";
 			var row = keyPhrase.substring(i, i + 5);
@@ -231,7 +231,7 @@ $(document).ready(function(){
 	$("#encrypt").click(function (e) {
 	e.preventDefault();
 		var str = TextToEncrypt($("#plaintext").val());
-		console.log(str);
+		
 		if (!str) {
 		$("#plaintext").next().addClass('bg-danger text-red').css("display", "block");
 		} else {
